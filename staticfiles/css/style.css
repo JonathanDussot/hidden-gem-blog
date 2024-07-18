@@ -32,7 +32,7 @@ body {
 
 /* index.html */
 
-.card-img, .card-img-bottom, .card-img-top {
+.card-img-top {
     width: 80%;
 }
 
