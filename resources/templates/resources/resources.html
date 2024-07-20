@@ -2,21 +2,40 @@
 {% block content %}
 {% load static %}
 <div class="container mt-5">
-  <div class="row">
+  <!-- Content One: Image left, Text right -->
+  <div class="row mb-5">
     <div class="col-4 text-center">
-      <img src="{% static 'images/hidden-gems-logo.png' %}" width="75%" />
+      <img src="{% static 'images/travel-suitcases.jpeg' %}" width="90%" />
     </div>
     <div class="col-8">
-      <!-- Title goes between these h2 tags -->
       <h2>{{ resources.title }}</h2>
-      <!-- Content goes directly underneath this -->
-      {{ resources.content | safe }}
+      {{ resources.content_one | safe }}
     </div>
   </div>
+  
+  <!-- Content Two: Image right, Text left -->
+  <div class="row mb-5">
+    <div class="col-8">
+      {{ resources.content_two | safe }}
+    </div>
+    <div class="col-4 text-center">
+      <img src="{% static 'images/pexels-riverboat.jpg' %}" width="100%" />
+    </div>
+  </div>
+
+  <!-- Content Three: Image left, Text right -->
+  <div class="row mb-5">
+    <div class="col-4 text-center">
+      <img src="{% static 'images/pexels-suitcase.jpg' %}" width="90%" />
+    </div>
+    <div class="col-8">
+      {{ resources.content_three | safe }}
+    </div>
+  </div>
+
+  <!-- Updated on field -->
   <div class="row">
     <div class="col text-right">
-      <!-- Updated on field goes in here -->
-
       <p class="text-end"><em>Updated on: {{ resources.updated_on }}</em></p>
     </div>
   </div>

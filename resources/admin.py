@@ -6,4 +6,4 @@ from django_summernote.admin import SummernoteModelAdmin
 @admin.register(Resources)
 class AboutAdmin(SummernoteModelAdmin):
 
-    summernote_fields = ('content',)
+    summernote_fields = ('content_one', 'content_two', 'content_three',)
