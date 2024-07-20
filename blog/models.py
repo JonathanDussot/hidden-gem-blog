@@ -17,7 +17,10 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
-    # likes = models.ManyToManyField(User, related_name='blog_posts')
+    likes = models.ManyToManyField(User, related_name='blog_posts_likes')
+
+    def total_likes(self):
+        return self.likes.count()
 
     class Meta:
         ordering = ["-created_on"]
