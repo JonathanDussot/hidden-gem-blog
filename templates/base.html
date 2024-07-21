@@ -2,6 +2,7 @@
 {% url 'home' as home_url %}
 {% url 'about' as about_url %}
 {% url 'resources' as resources_url %}
+{% url 'subscribe_to_newsletter' as newsletter_urls %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -55,7 +56,7 @@
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/subscribe_to_newsletter/' %}active{%endif%}" aria-current="page"
+                        <a class="nav-link {% if request.path == newsletter_urls %}active{%endif%}" aria-current="page"
                             href="{% url 'subscribe_to_newsletter' %}"
                           >Newsletter</a>
                     </li>
