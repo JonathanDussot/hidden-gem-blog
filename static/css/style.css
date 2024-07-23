@@ -1,7 +1,12 @@
+/* General body styling */
 body {
     font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
 }
 
 /* Navbar */
@@ -17,6 +22,10 @@ body {
     font-size: 1.6rem;
 }
 
+.nav-item {
+    margin-right: 5px;
+}
+
 .text-muted {
     padding: 2px 10px;
     font-family: "Poppins", sans-serif;
@@ -26,8 +35,16 @@ body {
     background-color: white;
 }
 
-.navbar-div, .dark-bg {
+#navbar-logo {
+    margin-right: 1rem;
+}
+
+.navbar-div, footer {
     background-color: #188181;
+    opacity: 0.8;
+    margin-top: 20px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {
@@ -40,6 +57,7 @@ body {
 
 .newsletter-alert {
     border: 3px solid #f06814;
+    border-radius: 25px;
 }
 
 .newsletter-phrase {
@@ -54,7 +72,7 @@ body {
     color: #f06814;
 }
 
-/* footer */
+/* Footer */
 .social-icons {
     font-size: 1.3rem;
 }
@@ -66,34 +84,38 @@ body {
 }
 
 /* index.html */
-
-.card-img-top {
-    width: 80%;
-}
-
-.card-title {
-    font-family: 'Poppins', sans-serif;
-    margin-bottom: .5rem;
-    margin-top: 1rem;
-}
-
-
- /* */
-.light-bg {
-    background-color: #fff;
-}
-
-.main-bg {
-    background-color: #F9FAFC;
-}
-
 .card {
-    border: none;
-    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    background-color: #fff; /* Ensure the background color is set */
+    border: 1px solid #ddd; /* Optional: for better visualization */
+    border-radius: 5px; /* Optional: for rounded corners */
+}
+
+.card .row {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
 }
 
 .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
     position: relative;
+    padding: 1rem;
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
 }
 
 .image-flash {
@@ -104,16 +126,48 @@ body {
     background-color: #188181;
 }
 
-.scale {
-    width: 100%;
-    height: auto;
-}
-
 .author {
     color: white;
     margin: 4px;
     text-transform: capitalize;
     font-weight: 600;
+}
+
+.post-link {
+    text-decoration: none;
+    color: #222;
+}
+
+.post-link:hover,
+.page-link {
+    color: #E84610;
+}
+
+.card-title {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: .5rem;
+    margin-top: 1rem;
+}
+
+.card-text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column;
+    }
+
+    .image-container {
+        padding: 0;
+    }
+
+    .card-body {
+        padding: 0.5rem;
+    }
 }
 
 .masthead {
@@ -148,16 +202,6 @@ body {
     -moz-transform: skew(15deg);
     transform: skew(15deg);
     z-index: 100;
-}
-
-.post-link {
-    text-decoration: none;
-    color: #222;
-}
-
-.post-link:hover,
-.page-link {
-    color: #E84610;
 }
 
 .post-title {

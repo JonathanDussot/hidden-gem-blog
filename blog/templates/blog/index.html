@@ -6,44 +6,42 @@
 <!-- index.html content starts here -->
 <div class="container-fluid">
     <div class="row">
-
         <!-- Blog Entries Column -->
-        <div class="col-12 mt-3 left">
+        <div class="col-12">
             <div class="row">
                 {% for post in post_list %}
-                <div class="col-md-6">
-                    <div class="card mb-6">
-                        <div class="card-body">
-                            <div class="image-container">
-                                {% if "placeholder" in post.featured_image.url %}
-                                <img class="card-img-top" src="{% static 'images/hidden-gems-logo.png' %}"
-                                    alt="placeholder image">
-                                {% else %}
-                                <img class="card-img-top" src=" {{ post.featured_image.url }}"
-                                    alt="{{ post.title }}">
-                                {% endif %}
-                                <div class="image-flash">
-                                    <p class="author">Author: {{ post.author }}</p>
+                <div class="col-12 mb-4">
+                    <div class="card">
+                        <div class="row no-gutters">
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                                        <h2 class="card-title">{{ post.title }}</h2>
+                                    </a>
+                                    <p>Total likes: {{ post.total_likes }}</p>
+                                    <p class="card-text">{{ post.excerpt }}</p>
+                                    <hr />
+                                    <p class="card-text text-muted h6">{{ post.created_on }}</p>
                                 </div>
                             </div>
-                            <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                                <h2 class="card-title">{{ post.title }}</h2>
-                                <p>Total likes: {{ post.total_likes }}</p>
-                                <p class="card-text">{{ post.excerpt }}</p>
-                            </a>
-
-                            <hr />
-                            <p class="card-text text-muted h6">{{ post.created_on}}
-                            </p>
+                            <div class="col-md-4">
+                                <div class="image-container">
+                                    {% if "placeholder" in post.featured_image.url %}
+                                    <img class="card-img-top" src="{% static 'images/hidden-gems-logo.png' %}"
+                                        alt="placeholder image">
+                                    {% else %}
+                                    <img class="card-img-top" src="{{ post.featured_image.url }}"
+                                        alt="{{ post.title }}">
+                                    {% endif %}
+                                    <div class="image-flash">
+                                        <p class="author">Author: {{ post.author }}</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:2 %}
-            </div>
-            <div class="row">
-                {% endif %}
                 {% endfor %}
-
             </div>
         </div>
     </div>
@@ -60,6 +58,5 @@
     </nav>
     {% endif %}
 </div>
-
 <!-- index.html content ends here -->
 {% endblock %}

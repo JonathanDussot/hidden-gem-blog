@@ -29,18 +29,18 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
-<body class="d-flex flex-column h-100 main-bg">
+<body class="">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid navbar-div">
-            <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/hidden-gems-logo.png' %}" alt="Hidden Gems Logo" class="logo" ></a>
+            <a id="navbar-logo" href="{% url 'home' %}"><img src="{% static 'images/hidden-gems-logo.png' %}" alt="Hidden Gems Logo" class="logo" ></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page"
                             href="{% url 'home' %}">Home</a>
@@ -73,7 +73,7 @@
                     </li>
                     {% endif %}
                 </ul>
-                <span class="navbar-text text-muted">
+                <span class="text-muted">
                     Experience a new world!
                 </span>
             </div>
@@ -82,7 +82,7 @@
     <!-- displaying Django messages -->
     <div class="container">
         <div class="row">
-            <div class="col-md-8 offset-md-2">
+            <div id="messages">
                 {% for message in messages %}
                 <div class="alert {{ message.tags }} alert-dismissible
                     fade show" id="msg" role="alert">
@@ -94,7 +94,7 @@
             </div>
         </div>
     </div>
-    <main class="flex-shrink-0 main-bg">
+    <main class="main-bg">
         {% if user.is_authenticated %}
         <div class="container text-center newsletter-alert">
             <p class="newsletter-phrase">New Monthly <span class="orange">free</span> Newsletter service available!!!</p>
@@ -114,7 +114,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer mt-auto py-3 dark-bg">
+    <footer class="footer">
         <p class="m-0 text-center text-white">
             {% block purposes %}
                 Educational Purposes Only
