@@ -1,4 +1,9 @@
 /* General body styling */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
     font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
@@ -7,6 +12,8 @@ body {
     font-weight: 400;
     line-height: 1.5;
     color: #212529;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Navbar */
@@ -39,7 +46,7 @@ body {
 .navbar-div, footer {
     background-color: #188181;
     opacity: 0.8;
-    margin-top: 20px;
+    margin-top: 10px;
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
@@ -70,6 +77,10 @@ body {
 }
 
 /* Footer */
+footer {
+    margin-top: auto;
+}
+
 .social-icons {
     font-size: 1.3rem;
 }
@@ -78,6 +89,17 @@ body {
     font-weight: 400;
     color: white;
     font-size: 1.6rem;
+}
+
+.flex-grow-1 {
+    flex: 1;
+}
+
+.footer {
+    background-color: #188181;
+    opacity: 0.8;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 /* index.html */
@@ -117,9 +139,9 @@ body {
 
 .image-flash {
     position: absolute;
-    bottom: 5%;
+    bottom: 10%;
     min-width: 30%;
-    left: -2px;
+    right: 30px;
     background-color: #188181;
 }
 
