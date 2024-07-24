@@ -1,4 +1,3 @@
-# views.py
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from .forms import SubscriptionForm
@@ -8,25 +7,26 @@ def subscribe_view(request):
     # Fetch the subscription info; adjust the filter as needed
     subscription_info = get_object_or_404(SubscriptionInfo, id=1)
     user = request.user if request.user.is_authenticated else None
-    
+
     if request.method == 'POST':
         form = SubscriptionForm(request.POST)
         if form.is_valid():
-            subscription = form.save(commit=False)
-            if user:
-                subscription.user = user
-            subscription.save()
-            messages.success(request, 'Thank you for subscribing to our newsletter!')
-            return redirect('home')  # Redirect to home or another page
+            email = form.cleaned_data.get('email')
+            existing_subscription = NewsletterSubscription.objects.filter(email=email).first()
+
+            if existing_subscription:
+                messages.info(request, 'You are already subscribed to the newsletter.')
+            else:
+                subscription = form.save(commit=False)
+                if user:
+                    subscription.user = user
+                subscription.save()
+                messages.success(request, 'Thank you for subscribing to our newsletter!')
+            return redirect('home')
         else:
             messages.error(request, 'There was an error with your subscription.')
     else:
         form = SubscriptionForm()
-
-    if user:
-        existing_subscription = NewsletterSubscription.objects.filter(user=user).first()
-        if existing_subscription:
-            messages.info(request, 'You are already subscribed to the newsletter.')
 
     return render(
         request,
@@ -42,8 +42,9 @@ def unsubscribe_view(request, email):
     if not email:
         messages.error(request, 'Invalid unsubscribe request.')
         return redirect('home')
-    
+
     try:
+        # Assuming the email is unique and exists
         subscription = NewsletterSubscription.objects.get(email=email)
         subscription.delete()
         messages.success(request, 'You have been unsubscribed successfully.')
@@ -51,3 +52,4 @@ def unsubscribe_view(request, email):
         messages.error(request, 'Subscription not found.')
 
     return redirect('home')
+    
