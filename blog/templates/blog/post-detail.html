@@ -1,5 +1,5 @@
-
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+{% block content %}
 {% load static %}
 {% load crispy_forms_tags %}
 
@@ -88,7 +88,7 @@
             This comment is awaiting approval
           </p>
           {% endif %}
-          {% if user.is_authenticated and comment.author == user %}
+          {% if user.is_authenticated and comment.author == user and comment.approved %}
           <button class="btn btn-delete" comment_id="{{ comment.id }}">Delete</button>
           <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
           {% endif %}

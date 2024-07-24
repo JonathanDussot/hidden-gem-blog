@@ -8,7 +8,7 @@
     <form method="post">
       {% csrf_token %}
       <button class="btn btn-primary" type="submit">Yes, Unsubscribe</button>
-      <a class="btn btn-danger" href="{% url 'newsletter_list' %}">Cancel</a>
+      <a class="btn btn-danger" href="{% url 'newsletter-list' %}">Cancel</a>
     </form>
   </div>
 {% endblock %}

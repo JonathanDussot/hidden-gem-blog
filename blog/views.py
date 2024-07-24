@@ -15,7 +15,7 @@ class LikeView(View):
         else:
             post.likes.add(request.user)
             messages.success(request, 'You liked this post.')
-        return HttpResponseRedirect(reverse('post_detail', args=[post.slug]))
+        return HttpResponseRedirect(reverse('post-detail', args=[post.slug]))
 
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
@@ -43,7 +43,7 @@ def post_detail(request, slug):
 
     return render(
         request,
-        "blog/post_detail.html",
+        "blog/post-detail.html",
         {
             "post": post,
             "comments": comments,
@@ -65,7 +65,7 @@ def comment_edit(request, slug, comment_id):
         else:
             messages.error(request, 'Error updating comment!')
 
-    return redirect('post_detail', slug=slug)
+    return redirect('post-detail', slug=slug)
 
 def comment_delete(request, slug, comment_id):
     post = get_object_or_404(Post, slug=slug, status=1)
@@ -77,4 +77,4 @@ def comment_delete(request, slug, comment_id):
     else:
         messages.error(request, 'You can only delete your own comments!')
 
-    return redirect('post_detail', slug=slug)
+    return redirect('post-detail', slug=slug)
