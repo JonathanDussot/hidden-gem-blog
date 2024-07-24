@@ -322,6 +322,7 @@ footer {
     border-color: #0d6efd;
     text-decoration: none;
     color: #fff;
+    margin: 3px;
 }
 
 a {
@@ -343,3 +344,9 @@ input {
     border-radius: 10px;
 }
 
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    unicode-bidi: isolate;
+    padding: 10px;
+}

@@ -1,10 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Unsubscribe from Newsletter</h1>
-  <p>Are you sure you want to unsubscribe {{ object.email }}?</p>
-  <form method="post">
-    {% csrf_token %}
-    <button type="submit">Yes, Unsubscribe</button>
-    <a href="{% url 'newsletter_list' %}">Cancel</a>
-  </form>
+  <div class="m-3 newsletter-content title">
+    <h1 class="newsletter-phrase">Unsubscribe from Newsletter</h1>
+  </div>
+  <div class="m-5 email-list">
+    <p class="orange"><strong>Are you sure you want to unsubscribe {{ object.email }}?</strong></p>
+    <form method="post">
+      {% csrf_token %}
+      <button class="btn btn-primary" type="submit">Yes, Unsubscribe</button>
+      <a class="btn btn-danger" href="{% url 'newsletter_list' %}">Cancel</a>
+    </form>
+  </div>
 {% endblock %}

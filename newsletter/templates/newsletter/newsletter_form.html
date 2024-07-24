@@ -7,7 +7,7 @@
       <form method="post">
       {% csrf_token %}
       {{ form.as_p }}
-        <button class="btn btn-primary sub-prompt" type="submit">{% if object.pk %}Update{% else %}Subscribe{% endif %}</button>
+        <button class="btn btn-primary" type="submit">{% if object.pk %}Update{% else %}Subscribe{% endif %}</button>
       </form>
     </div>
 {% endblock %}
