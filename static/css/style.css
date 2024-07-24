@@ -109,6 +109,11 @@ footer {
     background-color: #fff; /* Ensure the background color is set */
     border: 3px solid #188181; /* Optional: for better visualization */
     border-radius: 25px; /* Optional: for rounded corners */
+    overflow: hidden;
+}
+
+.card .image-container {
+    flex: 1;
 }
 
 .card .row {
@@ -117,10 +122,16 @@ footer {
 }
 
 .card-body {
+    flex: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 1rem;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
 }
 
 .image-container {
@@ -175,17 +186,20 @@ footer {
 }
 
 /* Responsive adjustments */
+/* Media Query for screens smaller than 768px */
 @media (max-width: 768px) {
     .card {
         flex-direction: column;
     }
 
     .image-container {
-        padding: 0;
+        order: 1;
+        width: 100%;
     }
 
     .card-body {
-        padding: 0.5rem;
+        order: 2;
+        padding: 1rem;
     }
 }
 
@@ -280,4 +294,14 @@ footer {
 
 .approval {
     color: rgb(222, 146, 168);
+}
+
+/* subscribe */
+.img-width img {
+    width: 100%;
+}
+
+.newsletter-content {
+    border: 3px solid #188181;
+    border-radius: 25px;
 }

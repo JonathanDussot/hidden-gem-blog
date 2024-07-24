@@ -2,30 +2,49 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-
 {% block content %}
 <div class="container mt-5">
-    <div class="row">
-        <div class="col-4 text-center">
-            <img src="{{ SubscriptionInfo.profile_image.url }}" width="130%"
-                alt="{{ SubscriptionInfo.title }}">
-        </div>
-        <div class="col-12">
-            <h2>{{ SubscriptionInfo.title }}</h2>
-            {{ SubscriptionInfo.content | safe }}
+    <div class="col-4 img-width">
+        <img src="{{ SubscriptionInfo.profile_image.url }}" alt="{{ SubscriptionInfo.title }}">
+    </div>
+    <div class="row newsletter-content justify-content-center m-3">
+        <div class="row col-md-6 my-5">
+            <div class="row">
+                <div class="col-12 mt-5">
+                    <h2>{{ SubscriptionInfo.title }}</h2>
+                    {{ SubscriptionInfo.content | safe }}
+                </div>
+                <div class="col text-right">
+                    <p class="text-end"><em>Updated on: {{ SubscriptionInfo.updated_on }}</em></p>
+                </div>
+                {% if user.is_authenticated %}
+                <div class="col-12">
+                    <p>Welcome, {{ user.username }}!</p>
+                    {% if user_subscribed %}
+                    <!-- Unsubscribe Form -->
+                    <form method="POST" action="{% url 'unsubscribe_from_newsletter' email=user.email %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">Unsubscribe</button>
+                    </form>
+                    {% else %}
+                    <!-- Subscription Form -->
+                    <form method="POST" action="{% url 'subscribe_to_newsletter' %}">
+                        {{ subscription_form | crispy }}
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                    {% endif %}
+                </div>
+                {% else %}
+                <!-- Subscription Form for Non-Authenticated Users -->
+                <form method="POST" action="{% url 'subscribe_to_newsletter' %}">
+                    {{ subscription_form | crispy }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+                {% endif %}
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col text-right">
-          <!-- Updated on field goes in here -->
-    
-          <p class="text-end"><em>Updated on: {{ SubscriptionInfo.updated_on }}</em></p>
-        </div>
-    </div>
-    <form method="POST" action="{% url 'subscribe_to_newsletter' %}">
-        {% csrf_token %}
-        {{ subscription_form | crispy }}
-        <button type="submit" class="btn btn-primary">Subscribe</button>
-    </form>
 </div>
 {% endblock %}
