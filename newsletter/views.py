@@ -1,8 +1,54 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib import messages
-from .forms import SubscriptionForm
 from .models import SubscriptionInfo, NewsletterSubscription
+from .forms import SubscriptionForm
 
+class NewsletterSubscriptionListView(LoginRequiredMixin, ListView):
+    model = NewsletterSubscription
+    template_name = 'newsletter/newsletter_list.html'
+    context_object_name = 'subscriptions'
+
+    def get_queryset(self):
+        return NewsletterSubscription.objects.filter(user=self.request.user)
+
+class NewsletterSubscriptionCreateView(CreateView):
+    model = NewsletterSubscription
+    form_class = SubscriptionForm
+    template_name = 'newsletter/newsletter_form.html'
+    success_url = reverse_lazy('newsletter_list')
+
+    def form_valid(self, form):
+        user = self.request.user if self.request.user.is_authenticated else None
+        form.instance.user = user
+        email = form.cleaned_data.get('email')
+        if NewsletterSubscription.objects.filter(email=email).exists():
+            messages.error(self.request, 'This email is already subscribed.')
+            return self.form_invalid(form)
+        return super().form_valid(form)
+
+class NewsletterSubscriptionUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = NewsletterSubscription
+    form_class = SubscriptionForm
+    template_name = 'newsletter/newsletter_form.html'
+    success_url = reverse_lazy('newsletter_list')
+
+    def test_func(self):
+        subscription = self.get_object()
+        return self.request.user == subscription.user
+
+class NewsletterSubscriptionDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = NewsletterSubscription
+    template_name = 'newsletter/newsletter_confirm_delete.html'
+    success_url = reverse_lazy('newsletter_list')
+
+    def test_func(self):
+        subscription = self.get_object()
+        return self.request.user == subscription.user
+
+# Updated subscribe_view and unsubscribe_view
 def subscribe_view(request):
     subscription_info = get_object_or_404(SubscriptionInfo, id=1)
     user = request.user if request.user.is_authenticated else None
@@ -20,7 +66,7 @@ def subscribe_view(request):
                 messages.success(request, 'Thank you for subscribing to our newsletter!')
             else:
                 messages.info(request, 'You are already subscribed to the newsletter.')
-            return redirect('home')
+            return redirect('newsletter_list')
         else:
             messages.error(request, 'There was an error with your subscription.')
     else:
@@ -36,21 +82,20 @@ def subscribe_view(request):
         }
     )
 
-
 def unsubscribe_view(request, email):
     if not email:
         messages.error(request, 'Invalid unsubscribe request.')
-        return redirect('home')
+        return redirect('newsletter_list')
 
     try:
         subscription = NewsletterSubscription.objects.get(email=email)
         if subscription.user and request.user != subscription.user:
             messages.error(request, 'You are not authorized to unsubscribe this email.')
-            return redirect('home')
+            return redirect('newsletter_list')
 
         subscription.delete()
         messages.success(request, 'You have been unsubscribed successfully.')
     except NewsletterSubscription.DoesNotExist:
         messages.error(request, 'Subscription not found.')
 
-    return redirect('home')
+    return redirect('newsletter_list')

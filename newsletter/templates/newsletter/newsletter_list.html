@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+    <div>
+      <div class="m-3 newsletter-content title">
+        <h1 class="newsletter-phrase">Newsletter Subscriptions</h1>
+      </div>
+      <div class="m-5 email-list">
+        <button class="btn btn-primary sub-prompt">
+          <a href="{% url 'newsletter_subscribe' %}">Subscribe to Newsletter with another email</a>
+        </button>
+        <ul>
+          <p class="orange m-2">Emails you have subscribed:</p>
+          {% for subscription in subscriptions %}
+            <li>
+              {{ subscription.email }}
+              <button class="btn btn-primary sub-prompt">
+                <a href="{% url 'newsletter_update' subscription.pk %}">Edit</a>
+              </button>
+              <button class="btn btn-danger delete-prompt">
+                <a href="{% url 'newsletter_delete' subscription.pk %}">Unsubscribe</a>
+              </button>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+{% endblock %}

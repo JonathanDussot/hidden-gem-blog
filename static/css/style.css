@@ -67,7 +67,7 @@ body {
 .newsletter-phrase {
     padding: 1.5px;
     font-weight: 800;
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin: 5px;
     font-style: oblique;
 }
@@ -304,4 +304,42 @@ footer {
 .newsletter-content {
     border: 3px solid #188181;
     border-radius: 25px;
+    display: flex;
+    justify-content: center;
 }
+
+.title {
+    padding: 10px 7px;
+}
+
+.email-list {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    text-decoration: none;
+    color: #fff;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    padding: 2px;
+    border: 1px solid transparent;
+    font-size: 1rem;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, white .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;   
+}
+
+a:hover {
+    color: #fff;
+}
+
+input {
+    width: 30%;
+    border-radius: 10px;
+}
+
