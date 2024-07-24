@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.conf import settings
 
 # Create your models here.
 class SubscriptionInfo(models.Model):
@@ -13,9 +14,9 @@ class SubscriptionInfo(models.Model):
         return self.title
 
 class NewsletterSubscription(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     email = models.EmailField(unique=True)
-    subscribed_on = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.CASCADE)
+    subscribed_on = models.DateTimeField(auto_now_add=True) 
 
     def __str__(self):
         return self.email
