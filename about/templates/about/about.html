@@ -21,8 +21,6 @@
     </div>
     <div class="row">
         <div class="col text-right">
-          <!-- Updated on field goes in here -->
-    
           <p class="text-end"><em>Updated on: {{ about.updated_on }}</em></p>
         </div>
       </div>
@@ -34,9 +32,6 @@
                 be interested in co-writing, or simply want to support my blog in
                 any way, shape or form, I'm excited to hear from you. Fill out the
                 form and we can get the ball rolling!</p>
-
-            <!-- add your form here. Your submit button should 
-                                have the classes of btn, btn-secondary -->
             <form method="post">
                 {{ collaborate_form | crispy }}
                 {% csrf_token %}

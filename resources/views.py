@@ -1,8 +1,6 @@
 from django.shortcuts import render
 from .models import Resources
 
-# Create your views here.
-
 
 def travel_resources(request):
     """

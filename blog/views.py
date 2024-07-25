@@ -6,6 +6,7 @@ from django.http import HttpResponseRedirect
 from .models import Post, Comment
 from .forms import CommentForm
 
+
 class LikeView(View):
     def post(self, request, pk):
         post = get_object_or_404(Post, id=pk)
@@ -17,10 +18,12 @@ class LikeView(View):
             messages.success(request, 'You liked this post.')
         return HttpResponseRedirect(reverse('post-detail', args=[post.slug]))
 
+
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
     template_name = "blog/index.html"
     paginate_by = 6
+
 
 def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug, status=1)
@@ -53,6 +56,7 @@ def post_detail(request, slug):
         }
     )
 
+
 def comment_edit(request, slug, comment_id):
     post = get_object_or_404(Post, slug=slug, status=1)
     comment = get_object_or_404(Comment, pk=comment_id)
@@ -66,6 +70,7 @@ def comment_edit(request, slug, comment_id):
             messages.error(request, 'Error updating comment!')
 
     return redirect('post-detail', slug=slug)
+
 
 def comment_delete(request, slug, comment_id):
     post = get_object_or_404(Post, slug=slug, status=1)

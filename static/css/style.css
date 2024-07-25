@@ -47,8 +47,8 @@ body {
     background-color: #188181;
     opacity: 0.8;
     margin-top: 10px;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
 }
 
 .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {
@@ -106,9 +106,9 @@ footer {
 .card {
     display: flex;
     flex-direction: row;
-    background-color: #fff; /* Ensure the background color is set */
-    border: 3px solid #188181; /* Optional: for better visualization */
-    border-radius: 25px; /* Optional: for rounded corners */
+    background-color: #fff;
+    border: 3px solid #188181;
+    border-radius: 25px;
     overflow: hidden;
 }
 
@@ -185,7 +185,6 @@ footer {
     margin-top: 1rem;
 }
 
-/* Responsive adjustments */
 /* Media Query for screens smaller than 768px */
 @media (max-width: 768px) {
     .card {
@@ -350,3 +349,9 @@ li {
     unicode-bidi: isolate;
     padding: 10px;
 }
+
+.img-fluid {
+    width: 100%;
+    height: auto;
+}
+

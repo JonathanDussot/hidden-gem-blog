@@ -1,6 +1,7 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
 
+
 class Resources(models.Model):
     title = models.CharField(max_length=200)
     updated_on = models.DateTimeField(auto_now=True)

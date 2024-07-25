@@ -1,13 +1,13 @@
 from django import forms
 from .models import NewsletterSubscription
 
+
 class SubscriptionForm(forms.ModelForm):
     class Meta:
         model = NewsletterSubscription
         fields = ['email']
 
     def __init__(self, *args, **kwargs):
-        # Optionally include the user in the form initialization
         self.user = kwargs.pop('user', None)
         super().__init__(*args, **kwargs)
 

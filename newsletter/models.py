@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.conf import settings
 
-# Create your models here.
+
 class SubscriptionInfo(models.Model):
     title = models.CharField(max_length=200, unique=True)
     profile_image = CloudinaryField('image', default='placeholder')
@@ -12,6 +12,7 @@ class SubscriptionInfo(models.Model):
 
     def __str__(self):
         return self.title
+
 
 class NewsletterSubscription(models.Model):
     email = models.EmailField(unique=True)

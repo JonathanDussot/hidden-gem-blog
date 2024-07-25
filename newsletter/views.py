@@ -6,6 +6,7 @@ from django.contrib import messages
 from .models import SubscriptionInfo, NewsletterSubscription
 from .forms import SubscriptionForm
 
+
 class NewsletterSubscriptionListView(LoginRequiredMixin, ListView):
     model = NewsletterSubscription
     template_name = 'newsletter/newsletter-list.html'
@@ -14,11 +15,12 @@ class NewsletterSubscriptionListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         return NewsletterSubscription.objects.filter(user=self.request.user)
 
+
 class NewsletterSubscriptionCreateView(CreateView):
     model = NewsletterSubscription
     form_class = SubscriptionForm
     template_name = 'newsletter/newsletter-form.html'
-    success_url = reverse_lazy('newsletter-list')
+    success_url = reverse_lazy('newsletter_list')
 
     def form_valid(self, form):
         user = self.request.user if self.request.user.is_authenticated else None
@@ -29,26 +31,28 @@ class NewsletterSubscriptionCreateView(CreateView):
             return self.form_invalid(form)
         return super().form_valid(form)
 
+
 class NewsletterSubscriptionUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = NewsletterSubscription
     form_class = SubscriptionForm
     template_name = 'newsletter/newsletter-form.html'
-    success_url = reverse_lazy('newsletter-list')
+    success_url = reverse_lazy('newsletter_list')
 
     def test_func(self):
         subscription = self.get_object()
         return self.request.user == subscription.user
+
 
 class NewsletterSubscriptionDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = NewsletterSubscription
-    template_name = 'newsletter/newsletter-confirm_delete.html'
-    success_url = reverse_lazy('newsletter-list')
+    template_name = 'newsletter/newsletter-confirm-delete.html'
+    success_url = reverse_lazy('newsletter_list')
 
     def test_func(self):
         subscription = self.get_object()
         return self.request.user == subscription.user
 
-# Updated subscribe_view and unsubscribe_view
+
 def subscribe_view(request):
     subscription_info = get_object_or_404(SubscriptionInfo, id=1)
     user = request.user if request.user.is_authenticated else None
@@ -66,7 +70,7 @@ def subscribe_view(request):
                 messages.success(request, 'Thank you for subscribing to our newsletter!')
             else:
                 messages.info(request, 'You are already subscribed to the newsletter.')
-            return redirect('newsletter-list')
+            return redirect('newsletter_list')
         else:
             messages.error(request, 'There was an error with your subscription.')
     else:
@@ -82,20 +86,21 @@ def subscribe_view(request):
         }
     )
 
+
 def unsubscribe_view(request, email):
     if not email:
         messages.error(request, 'Invalid unsubscribe request.')
-        return redirect('newsletter-list')
+        return redirect('newsletter_list')
 
     try:
         subscription = NewsletterSubscription.objects.get(email=email)
         if subscription.user and request.user != subscription.user:
             messages.error(request, 'You are not authorized to unsubscribe this email.')
-            return redirect('newsletter-list')
+            return redirect('newsletter_list')
 
         subscription.delete()
         messages.success(request, 'You have been unsubscribed successfully.')
     except NewsletterSubscription.DoesNotExist:
         messages.error(request, 'Subscription not found.')
 
-    return redirect('newsletter-list')
+    return redirect('newsletter_list')
