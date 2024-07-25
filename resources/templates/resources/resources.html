@@ -5,7 +5,8 @@
   <!-- Content One: Image left, Text right -->
   <div class="row mb-5">
     <div class="col-4 text-center">
-      <img src="{% static 'images/travel-suitcases.jpeg' %}" width="90%" />
+      <img src="{% static 'images/travel-suitcases.jpeg' %}" class="img-width"
+        alt="image of travel with suitcases"/>
     </div>
     <div class="col-8">
       <h2>{{ resources.title }}</h2>
@@ -19,14 +20,15 @@
       {{ resources.content_two | safe }}
     </div>
     <div class="col-4 text-center">
-      <img src="{% static 'images/pexels-riverboat.jpg' %}" width="100%" />
+      <img src="{% static 'images/pexels-riverboat.jpg' %}" class="img-width"
+        alt="image of travel on riverboat"/>
     </div>
   </div>
 
   <!-- Content Three: Image left, Text right -->
   <div class="row mb-5">
     <div class="col-4 text-center">
-      <img src="{% static 'images/pexels-suitcase.jpg' %}" width="90%" />
+      <img src="{% static 'images/pexels-suitcase.jpg' %}" class="img-width"/>
     </div>
     <div class="col-8">
       {{ resources.content_three | safe }}

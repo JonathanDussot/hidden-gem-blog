@@ -163,6 +163,10 @@ footer {
     font-weight: 600;
 }
 
+.img-width {
+    width: 75%;
+}
+
 .post-link {
     text-decoration: none;
     color: #222;

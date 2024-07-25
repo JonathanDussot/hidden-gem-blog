@@ -4,20 +4,20 @@
       <h1 class="newsletter-phrase">Newsletter Subscriptions</h1>
     </div>
     <div class="m-5 email-list">
-      <button class="btn btn-primary">
-        <a href="{% url 'newsletter_subscribe' %}">Subscribe to Newsletter with another email</a>
-      </button>
+      <a href="{% url 'newsletter_subscribe' %}" class="btn btn-primary">
+        Subscribe to Newsletter with another email
+      </a>
       <ul>
         <p class="orange m-2">Emails you have subscribed:</p>
         {% for subscription in subscriptions %}
           <li>
             {{ subscription.email }}
-            <button class="btn btn-primary">
-              <a href="{% url 'newsletter_update' subscription.pk %}">Edit</a>
-            </button>
-            <button class="btn btn-danger">
-              <a href="{% url 'newsletter_delete' subscription.pk %}">Unsubscribe</a>
-            </button>
+            <a href="{% url 'newsletter_update' subscription.pk %}" class="btn btn-primary">
+              Edit
+            </a>
+            <a href="{% url 'newsletter_delete' subscription.pk %}" class="btn btn-danger">
+              Unsubscribe
+            </a>
           </li>
         {% endfor %}
       </ul>

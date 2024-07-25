@@ -7,10 +7,10 @@
     <div class="row">
         <div class="col-4 text-center">
             {% if "placeholder" in about.profile_image.url %}
-            <img src="{% static 'images/hidden-gems-logo.png' %}" width="75%"
+            <img src="{% static 'images/hidden-gems-logo.png' %}" class="img-width"
                 alt="placeholder image" >
             {% else %}
-            <img src="{{ about.profile_image.url }}" width="75%"
+            <img src="{{ about.profile_image.url }}" class="bio"
                 alt="{{ about.title }}">
             {% endif %}
         </div>
