@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="m-3 newsletter-content title">
+    <div class="m-3 newsletter-content title text-center">
       <h1 class="newsletter-phrase">{% if object.pk %}Edit Subscription{% else %}Subscribe to Newsletter{% endif %}</h1>
     </div>
-    <div class="m-5 email-list">
+    <div class="m-5 email-list text-center">
       <form method="post">
       {% csrf_token %}
       {{ form.as_p }}

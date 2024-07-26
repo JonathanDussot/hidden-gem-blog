@@ -3,24 +3,27 @@
     <div class="m-3 newsletter-content title">
       <h1 class="newsletter-phrase">Newsletter Subscriptions</h1>
     </div>
-    <div class="m-5 email-list">
-      <a href="{% url 'newsletter_subscribe' %}" class="btn btn-primary">
+    <div class="m-5 email-list text-center">
+      <a href="{% url 'newsletter_subscribe' %}" class="btn btn-primary mb-3">
         Subscribe to Newsletter with another email
       </a>
-      <ul>
-        <p class="orange m-2">Emails you have subscribed:</p>
+      <p class="orange mb-3">Emails you have subscribed:</p>
+      <ul class="list-unstyled">
         {% for subscription in subscriptions %}
-          <li>
-            {{ subscription.email }}
-            <a href="{% url 'newsletter_update' subscription.pk %}" class="btn btn-primary">
-              Edit
-            </a>
-            <a href="{% url 'newsletter_delete' subscription.pk %}" class="btn btn-danger">
-              Unsubscribe
-            </a>
+          <li class="d-flex justify-content-between align-items-center mb-2 p-2 border rounded">
+            <span>{{ subscription.email }}</span>
+            <div>
+              <a href="{% url 'newsletter_update' subscription.pk %}" class="btn btn-primary btn-sm mx-1">
+                Edit
+              </a>
+              <a href="{% url 'newsletter_delete' subscription.pk %}" class="btn btn-danger btn-sm mx-1">
+                Unsubscribe
+              </a>
+            </div>
           </li>
         {% endfor %}
       </ul>
     </div>
+
     
 {% endblock %}

@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-  <div class="m-3 newsletter-content title">
+  <div class="m-3 newsletter-content title text-center">
     <h1 class="newsletter-phrase">Unsubscribe from Newsletter</h1>
   </div>
-  <div class="m-5 email-list">
+  <div class="m-5 email-list text-center">
     <p class="orange"><strong>Are you sure you want to unsubscribe {{ object.email }}?</strong></p>
     <form method="post">
       {% csrf_token %}
-      <button class="btn btn-primary" type="submit">Yes, Unsubscribe</button>
-      <a class="btn btn-danger" href="{% url 'newsletter_list' %}">Cancel</a>
+      <button class="btn btn-primary btn-sm" type="submit">Yes, Unsubscribe</button>
+      <a class="btn btn-danger btn-sm" href="{% url 'newsletter_list' %}">Cancel</a>
     </form>
   </div>
 {% endblock %}
