@@ -430,3 +430,7 @@ li {
 .content {
     overflow-wrap: break-word;
 }
+
+.resource-link {
+    color: #007bff;
+}
