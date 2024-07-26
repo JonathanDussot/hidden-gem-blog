@@ -438,3 +438,7 @@ li {
 .resource-link:hover {
     color: #00ccff;
 }
+
+input#id_email {
+    width: 80%;
+}
