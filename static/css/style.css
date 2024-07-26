@@ -434,3 +434,7 @@ li {
 .resource-link {
     color: #007bff;
 }
+
+.resource-link:hover {
+    color: #00ccff;
+}
