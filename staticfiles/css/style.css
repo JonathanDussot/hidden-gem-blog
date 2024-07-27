@@ -1,13 +1,45 @@
+/* General styles */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
+    min-height: 100vh;
     font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    display: flex;
+    flex-direction: column;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.text-center {
+    text-align: center;
+}
+  
+.orange {
+    color: #f39c12;
+}
+
+.text-end {
+    text-align: right;
+}
+
+.content {
+    overflow-wrap: break-word;
 }
 
 /* Navbar */
 .logo {
     height: 7.5rem;
     padding: 5px 20px;
+    margin-right: 1rem;
 }
 
 .nav-link {
@@ -17,8 +49,12 @@ body {
     font-size: 1.6rem;
 }
 
+.nav-item {
+    margin-right: 3px;
+}
+
 .text-muted {
-    padding: 2px 10px;
+    padding: 2px 7px;
     font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-style: italic;
@@ -26,8 +62,15 @@ body {
     background-color: white;
 }
 
-.navbar-div, .dark-bg {
+.navbar-div {
+    margin-top: 10px;
+}
+
+.navbar-div, footer {
     background-color: #188181;
+    opacity: 0.8;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
 }
 
 .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {
@@ -38,14 +81,16 @@ body {
     color: rgba(255, 255, 255, .80);
 }
 
+/* newsletter sub-heading */
 .newsletter-alert {
     border: 3px solid #f06814;
+    border-radius: 25px;
 }
 
 .newsletter-phrase {
     padding: 1.5px;
     font-weight: 800;
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin: 5px;
     font-style: oblique;
 }
@@ -54,7 +99,15 @@ body {
     color: #f06814;
 }
 
-/* footer */
+.flex-grow-1 {
+    flex: 1;
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+}
+
 .social-icons {
     font-size: 1.3rem;
 }
@@ -66,47 +119,52 @@ body {
 }
 
 /* index.html */
-
-.card-img-top {
-    width: 80%;
-}
-
-.card-title {
-    font-family: 'Poppins', sans-serif;
-    margin-bottom: .5rem;
-    margin-top: 1rem;
-}
-
-
- /* */
-.light-bg {
-    background-color: #fff;
-}
-
-.main-bg {
-    background-color: #F9FAFC;
-}
-
 .card {
-    border: none;
-    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    background-color: #fff;
+    border: 3px solid #188181;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.card .image-container {
+    flex: 1;
+}
+
+.card-body {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
 }
 
 .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
     position: relative;
+    padding: 1rem;
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
 }
 
 .image-flash {
     position: absolute;
-    bottom: 5%;
+    bottom: 10%;
     min-width: 30%;
-    left: -2px;
+    right: 30px;
     background-color: #188181;
-}
-
-.scale {
-    width: 100%;
-    height: auto;
 }
 
 .author {
@@ -116,6 +174,35 @@ body {
     font-weight: 600;
 }
 
+.post-link {
+    text-decoration: none;
+    color: #222;
+}
+
+.post-link:hover,
+.page-link {
+    color: #E84610;
+}
+
+.card-title {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: .5rem;
+    margin-top: 1rem;
+}
+
+.card-text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+/* About page */
+.bio {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Post-detail page */
 .masthead {
     margin-top: 10px;
     overflow: hidden;
@@ -150,16 +237,6 @@ body {
     z-index: 100;
 }
 
-.post-link {
-    text-decoration: none;
-    color: #222;
-}
-
-.post-link:hover,
-.page-link {
-    color: #E84610;
-}
-
 .post-title {
     margin-top: 10%;
     margin-left: 5%;
@@ -170,6 +247,7 @@ body {
     color: lightgray;
 }
 
+/* Buttons */
 .btn-signup,
 .btn-edit {
     background-color: #188181;
@@ -205,7 +283,7 @@ body {
 }
 
 .btn-like:hover,
-.btn-like:active {
+.btn-like:active, .orange:hover {
     color: #E84610;
     background: transparent;
     border: none;
@@ -217,4 +295,194 @@ body {
 
 .approval {
     color: rgb(222, 146, 168);
+}
+
+/* Subscribe */
+img.img-width {
+    max-width: 100%;
+    height: auto;
+}
+
+.newsletter-content {
+    border: 3px solid #188181;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    padding: 10px 7px;
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    text-decoration: none;
+    color: #fff;
+    margin: 3px;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    padding: 2px;
+    border: 1px solid transparent;
+    font-size: 1rem;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, white .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;   
+}
+
+a:hover {
+    color: #fff;
+}
+
+input {
+    width: 30%;
+    border-radius: 10px;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    unicode-bidi: isolate;
+    padding: 10px;
+}
+
+.img-fluid img.img-width {
+    width: 100%;
+    height: auto;
+}
+
+.email-list {
+    font-size: 1.3rem;
+    font-weight: 500;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+  
+.email-list a {
+    text-decoration: none;
+}
+  
+.email-list .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+  
+.email-list .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+  
+.email-list .btn-primary:hover,
+.email-list .btn-danger:hover {
+    opacity: 0.9;
+}
+  
+.email-list ul {
+    padding: 0;
+}
+  
+.email-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+  
+.email-list li:last-child {
+    border-bottom: none;
+}
+  
+.email-list span {
+    flex-grow: 1;
+}
+  
+.email-list .btn-sm {
+    font-size: 0.875rem;
+}
+  
+.email-list .mx-1 {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+input#id_email {
+    width: 80%;
+}
+
+/* Travel Resources page */
+.resource-link {
+    color: #007bff;
+}
+
+.resource-link:hover {
+    color: #00ccff;
+}
+
+/* Media Query for screens smaller than 1150px */
+@media (max-width: 1150px) {
+    .logo {
+        height: 6rem; /* Reduce logo size */
+        padding: 2px 10px;
+    }
+
+    .navbar-expand-lg {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+   
+    .nav-link {
+        font-size: 1.2rem; /* Reduce nav link size */
+    }
+   
+    .text-muted {
+        font-size: 1.2rem; /* Reduce text size */
+    }
+
+    .navbar-div {
+        margin-top: 5px;
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+    }
+
+    .navbar-collapse {
+        flex-grow: 0; /* Prevent overflowing */
+    }
+}
+
+/* Media Query for screens smaller than 768px */
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column;
+    }
+
+    .image-container {
+        order: 1;
+        width: 100%;
+    }
+
+    .card-body {
+        order: 2;
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .navbar-div {
+        padding-top: 0.1rem;
+        padding-bottom: 0.1rem;
+    }
+
+    .nav-link {
+        font-size: 1rem;
+    }
+
+    .text-muted {
+        font-size: 1rem;
+    }
 }
