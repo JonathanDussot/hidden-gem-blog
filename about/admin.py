@@ -3,8 +3,6 @@ from .models import About, CollaborateRequest
 from django_summernote.admin import SummernoteModelAdmin
 
 
-# Register the About model with the admin site and enables summernote for
-# content.
 @admin.register(About)
 class AboutAdmin(SummernoteModelAdmin):
     """
@@ -14,7 +12,6 @@ class AboutAdmin(SummernoteModelAdmin):
     summernote_fields = ('content',)
 
 
-# Register the CollaborateRequest model with the admin site
 @admin.register(CollaborateRequest)
 class CollaborateRequestAdmin(admin.ModelAdmin):
     """

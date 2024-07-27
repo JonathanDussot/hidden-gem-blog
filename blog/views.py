@@ -1,3 +1,6 @@
+"""
+Functions for the Blog app view code
+"""
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.views import View, generic
@@ -8,6 +11,9 @@ from .forms import CommentForm
 
 
 class LikeView(View):
+    """
+    Allows user to like or delete their like.
+    """
     def post(self, request, pk):
         post = get_object_or_404(Post, id=pk)
         if request.user in post.likes.all():
@@ -20,12 +26,19 @@ class LikeView(View):
 
 
 class PostList(generic.ListView):
+    """
+    displays published blog posts
+    """
     queryset = Post.objects.filter(status=1)
     template_name = "blog/index.html"
     paginate_by = 6
 
 
 def post_detail(request, slug):
+    """
+    renders all post details on the page including likes and comments,
+    and also allows user to comment on a post
+    """
     post = get_object_or_404(Post, slug=slug, status=1)
     comments = post.comments.all().order_by("-created_on")
     comment_count = post.comments.filter(approved=True).count()
@@ -38,9 +51,11 @@ def post_detail(request, slug):
             comment.author = request.user
             comment.post = post
             comment.save()
-            messages.success(request, 'Comment submitted and awaiting approval.')
+            messages.success(request,
+                             'Comment submitted and awaiting approval.')
         else:
-            messages.error(request, 'There was an error submitting your comment.')
+            messages.error(request,
+                           'There was an error submitting your comment.')
 
     comment_form = CommentForm()
 
@@ -58,6 +73,9 @@ def post_detail(request, slug):
 
 
 def comment_edit(request, slug, comment_id):
+    """
+    Allows user to edit thier comment
+    """
     post = get_object_or_404(Post, slug=slug, status=1)
     comment = get_object_or_404(Comment, pk=comment_id)
 
@@ -73,6 +91,9 @@ def comment_edit(request, slug, comment_id):
 
 
 def comment_delete(request, slug, comment_id):
+    """
+    Allows users to delete their comment
+    """
     post = get_object_or_404(Post, slug=slug, status=1)
     comment = get_object_or_404(Comment, pk=comment_id)
 

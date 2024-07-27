@@ -7,9 +7,7 @@ class AboutConfig(AppConfig):
 
     Attributes:
         default_auto_field (str): Specifies the type of field to use for
-        auto-generated primary keys. 'BigAutoField' is used to accommodate
-        larger integers. name (str): The name of the application. This is
-        used by Django to refer to the application.
+        auto-generated primary keys.
     """
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'about'

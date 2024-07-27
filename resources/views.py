@@ -1,3 +1,6 @@
+"""
+Functions for the Resources app view code
+"""
 from django.shortcuts import render
 from .models import Resources
 
