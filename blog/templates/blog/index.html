@@ -13,6 +13,7 @@
                         <div class="row no-gutters">
                             <div class="col-md-4">
                                 <div class="image-container">
+                                    <!-- If author doesn't upload an image, default one will be displayed. -->
                                     {% if "placeholder" in post.featured_image.url %}
                                     <img class="card-img-top" src="{% static 'images/hidden-gems-logo.png' %}"
                                         alt="placeholder image">
@@ -43,6 +44,8 @@
             </div>
         </div>
     </div>
+    <!-- If html detects there are more than 6 posts, an option is given to switch between pages
+      and see the rest. -->
     {% if is_paginated %}
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">

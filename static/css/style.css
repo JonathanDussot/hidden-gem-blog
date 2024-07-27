@@ -283,7 +283,7 @@ footer {
 }
 
 .btn-like:hover,
-.btn-like:active {
+.btn-like:active, .orange:hover {
     color: #E84610;
     background: transparent;
     border: none;

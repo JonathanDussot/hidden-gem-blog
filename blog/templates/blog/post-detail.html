@@ -11,6 +11,7 @@
                 <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
+              <!-- If author hadn't previously uploaded an image, default one will be displayed. -->
               {% if "placeholder" in post.featured_image.url %}
               <img src="{% static 'images/default.jpg' %}" class="scale"
                 alt="placeholder image">
@@ -35,16 +36,21 @@
                 <hr> 
                 <br/>
                 <p>Total likes: {{ total_likes }}</p>
-                <form action="{% url 'like_post' pk=post.id %}" method="POST">
-                  {% csrf_token %}
-                  <button type="submit" class="btn btn-primary btn-sm">
-                    {% if user in post.likes.all %}
-                      Unlike
-                    {% else %}
-                      Like
-                    {% endif %}
-                  </button>
-                </form>
+                <!-- User is permitted to like a post depending on log-in status -->
+                {% if user.is_authenticated %}
+                    <form action="{% url 'like_post' pk=post.id %}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary btn-sm">
+                            {% if user in post.likes.all %}
+                                Unlike
+                            {% else %}
+                                Like
+                            {% endif %}
+                        </button>
+                    </form>
+                {% else %}
+                    <p><a href="{% url 'account_login' %}?next={{ request.path }}" class="orange">Log in to like this post</a></p>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -75,6 +81,7 @@
             <div id="comment{{ comment.id }}">
               {{ comment.body | linebreaks }}
             </div>
+            <!-- User cannot edit or delete post until approved. -->
             {% if not comment.approved and comment.author == user %}
             <p class="approval">
               This comment is awaiting approval
@@ -90,6 +97,7 @@
       </div>
       <div class="col-md-4 card mb-4 mt-3">
         <div class="card-body">
+          <!-- User is permitted to comment on post depending on log-in status -->
           {% if user.is_authenticated %}
           <h3>Leave a comment:</h3>
           <p>Posting as: {{ user.username }}</p>

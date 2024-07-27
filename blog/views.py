@@ -16,7 +16,7 @@ class LikeView(View):
         else:
             post.likes.add(request.user)
             messages.success(request, 'You liked this post.')
-        return HttpResponseRedirect(reverse('post-detail', args=[post.slug]))
+        return HttpResponseRedirect(reverse('post_detail', args=[post.slug]))
 
 
 class PostList(generic.ListView):
