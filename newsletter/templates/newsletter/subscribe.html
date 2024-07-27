@@ -10,6 +10,7 @@
             <h2>{{ SubscriptionInfo.title }}</h2>
             <div>{{ SubscriptionInfo.content | safe }}</div>
             <p class="text-end"><em>Updated on: {{ SubscriptionInfo.updated_on }}</em></p>
+            <!--different options depending on user's sign up-to-newsletter status-->
             {% if user_subscribed %}
                 <form method="POST" action="{% url 'unsubscribe_from_newsletter' email=user.email %}">
                     {% csrf_token %}

@@ -3,7 +3,7 @@
 {% load static %}
 
 <div class="container mt-5">
-  <!-- Content One: Image left, Text right -->
+  <!-- Content One box-->
   <div class="row mb-5">
     <div class="col-4 text-center">
       <img src="{% static 'images/travel-suitcases.jpeg' %}" class="img-width"
@@ -15,7 +15,7 @@
     </div>
   </div>
   
-  <!-- Content Two: Image right, Text left -->
+  <!-- Content Two box -->
   <div class="row mb-5">
     <div class="col-8">
       {{ resources.content_two | safe }}
@@ -26,7 +26,7 @@
     </div>
   </div>
 
-  <!-- Content Three: Image left, Text right -->
+  <!-- Content Three box -->
   <div class="row mb-5">
     <div class="col-4 text-center">
       <img src="{% static 'images/pexels-suitcase.jpg' %}" class="img-width"
@@ -37,7 +37,6 @@
     </div>
   </div>
 
-  <!-- Updated on field -->
   <div class="row">
     <div class="col text-right">
       <p class="text-end"><em>Updated on: {{ resources.updated_on }}</em></p>

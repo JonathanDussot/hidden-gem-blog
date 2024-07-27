@@ -7,7 +7,6 @@ html, body {
 body {
     min-height: 100vh;
     font-family: "Open Sans", sans-serif;
-    font-optical-sizing: auto;
     font-style: normal;
     font-size: 1rem;
     font-weight: 400;
@@ -15,8 +14,6 @@ body {
     color: #212529;
     display: flex;
     flex-direction: column;
-    -webkit-text-size-adjust: 100%;
-    -webkit-tap-highlight-color: transparent;
 }
 
 .text-center {
@@ -24,7 +21,7 @@ body {
 }
   
 .orange {
-    color: #f39c12;
+    color: #f06814;
 }
 
 .text-end {
@@ -93,10 +90,6 @@ body {
     font-size: 2.2rem;
     margin: 5px;
     font-style: oblique;
-}
-
-.orange {
-    color: #f06814;
 }
 
 .flex-grow-1 {
@@ -231,8 +224,6 @@ footer {
     height: 100%;
     width: 150%;
     background: #445261;
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
     transform: skew(15deg);
     z-index: 100;
 }
@@ -315,7 +306,7 @@ img.img-width {
 }
 
 .btn-primary {
-    background-color: #0d6efd;
+    background-color: #035ee6;
     border-color: #0d6efd;
     text-decoration: none;
     color: #fff;
@@ -329,7 +320,7 @@ a {
     border: 1px solid transparent;
     font-size: 1rem;
     border-radius: .25rem;
-    transition: color .15s ease-in-out, white .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;   
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;   
 }
 
 a:hover {
