@@ -10,7 +10,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-jonathandus-hiddengembl-49mgyq4449z.ws.codeinstitute-ide.net', '.herokuapp.com']
 
