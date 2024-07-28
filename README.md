@@ -474,29 +474,30 @@ The site was deployed to Heroku. The steps to deploy are as follows:
 ## Credits
 
 ### Content
-- [Mats Simonsson](https://github.com/Pelikantapeten): A fellow student & friend who consistently helps me to troubleshoot when needed, support me constantly, and be my rubber duck.
-- [Martina Terlevic](https://github.com/SephTheOverwitch): A constant support system, providing reassurance, and the ability to calm me down.
-- “I think therefore I blog” walkthrough: Provided the initial steps for setting up & deploying the site, as well as this, I also used the instructions they provided in order to implement a django blog into my app, following the walkthrough once again step-by-step. This also includes some formatting for the way each blog post is displayed on the blog page. Credits have been added as comments where code was used.
-- "I think therefore I blog" + "Hello Django" + Slack + Stackoverflow + a fellow [student](https://github.com/cornishcoder1): aided in the creation of the CRUD functions.
-- Sean from Tutor Support: Singling out the most recent blog post with an "IF statement".
-- Ger from Tutor support: assistance deciphering an error I could not understand. Re-linking the Heroku database in the env.py file with the new value resolved this.
-- Ger from Tutor support: limiting view sections to a single user.
-- ['Simple is Better Than Complex'](https://simpleisbetterthancomplex.com/tutorial/2018/01/18/how-to-implement-multiple-user-types-with-django.html): creating types of user groups.
-- [Bootstrap](https://getbootstrap.com/docs/5.2/components/dropdowns/): dropdown nav menu.
-- [Stackoverflow](https://stackoverflow.com/questions/66185424/django-how-do-i-handle-urls-with-multiple-apps): connect URL paths from multiple apps.
-- [Stackoverflow](https://stackoverflow.com/questions/38724012/django-crispy-forms-set-label-text-for-multiple-fields): add form label.
-- [Stackoverflow](https://stackoverflow.com/questions/3111779/how-can-i-get-the-file-name-from-request-files): iterating over form field.
-- [Stackoverflow](https://stackoverflow.com/questions/23956288/django-all-auth-email-required): Allauth email sign up required.
-- [Slack thread](https://code-institute-room.slack.com/archives/C7EJUQT2N/p1642336796215800?thread_ts=1642316166.200400&cid=C7EJUQT2N): Assistance with function to submit new prints.
-- [Ordinary Coders](https://ordinarycoders.com/blog/article/django-messages-framework): implementing bootstrap messages in django.
-- "Hello Django": The two tests implemented in this project were reused from the walkthrough project.
+- “I think therefore I blog” walkthrough: Assisted me hugelyfrom the start with initial steps such as commands, adding apps, designing models and the many installed apps and their purposes.  Permitted me to add on to them and expand what I already had.
+- Slack community for the vast amount of support and information available to clear doubts and help with potential bugs.
+- Tutor Support for their constant support with some of the questions or issues I had and the patience to make everything so clear and such a pleasant learning experience.
+- CI for providing us with an exclusive Gitpod which helped tremendously considering the amount of hours dedicated to putting this project together, and hopefully many more for the future implementations and improvements to be made.
+- **Location content**:
+- [Royal Alaska Movers](https://www.royalalaskanmovers.com/north-pole-alaska-visitors-guide/) provided me with the content for Santa Claus's house within the blog posts.
+- [Komoot](https://www.komoot.com/guide/1812719/attractions-in-fairbanks-north-star-borough) provided me with the content for the northern lights within the blog posts.
+- [The Culture Trip](https://theculturetrip.com/south-america/peru/articles/how-to-visit-the-nazca-lines-in-peru) provided me with the content for the Nazca Lines within the blog posts.
+- [Osprey Expeditions](https://ospreyexpeditions.com/interesting-facts-about-cano-cristales/) provided me with the content for Cano Cristales within the blog posts.
+- [Forbes](https://www.forbes.com/sites/trevornace/2016/03/02/rainbow-mountains-china-earths-paint-palette/) provided me with the content for the Rainbow mountains in China within the blog posts.
+- [Atlas Obscura](https://www.atlasobscura.com/places/santa-maria-dellisola-monastery) provided me with the content for the Monastery of Santa Maria Tropea within the blog posts.
+- [Great Blue Hole](https://greatbluehole.net/) provided me with the content for the Great Blue Hole within the blog posts.
+- [Jrailpass](https://www.jrailpass.com/blog/ashikaga-flower-park#:~:text=The%20Ashikaga%20Flower%20Park%20first,monument%20by%20the%20Tochigi%20Prefecture) provided me with the content for Ashikaga Flower Park within the blog posts.
+- [Neuschwanstein Tickets](https://neuschwansteintickets.com/) provided me with the content for Neuschwanstein Castle within the blog posts.
+- [Waitomo](https://www.waitomo.com/glowworms-and-caves/waitomo-glowworm-caves) provided me with the content for the Glow-worm Caves within the blog posts.
+- [Indonesia Travel](https://www.indonesia.travel/gb/en/destinations/bali-nusa-tenggara/flores/lake-kelimutu.html) provided me with the content for the Kelimutu lakes within the blog posts.
+- [Inside Kyoto](https://www.insidekyoto.com/arashiyama-bamboo-grove) provided me with the content for the Bamboo Groves within the blog posts.
+- [https://ukraine.ua](https://ukraine.ua/cities-places/tunnel-of-love/) provided me with the content for the tunnel of love within the blog posts.
+- [Go Visit Costa Rica](https://www.govisitcostarica.com/region/city.asp?cID=69) provided me with the content for Montaverde within the blog posts.
+- [Adventure Clues](https://www.adventureclues.com/articles/36-unknown-places-in-the-world-that-will-take-your-breath-away/) provided me with alot of information about nearly all the locations chosen and gave me some great content to use within the excerpts
+- [Adventurous Kate](https://www.adventurouskate.com/travel-resources/) for the extremely useful travelling tips used within my 'Travel Resources' section.
 
 ### Media
-- All photography displayed in the Artists gallery was created by me.
-- The drawings were provided by my friend, [Eleni Sarri](https://www.instagram.com/elenibydesign/), with her permission.
-
-#### Pexels:
-<!-- - unused, Photo by [Barbara Wyrowińska](https://www.pexels.com/photo/green-photo-frame-2961734/) -->
-- Hero image, Photo by: [Tom Balabaud](https://www.pexels.com/photo/framed-photo-lot-1579708/)
-- About page, Photo by: [¶Project Atlas](https://www.pexels.com/photo/three-paintings-hanging-in-gallery-1674049/)
-- Default blog post image, by: [cottonbro](https://www.pexels.com/photo/person-holding-white-and-black-frame-4065183/)
+- [Freepik](https://www.freepik.es/search?format=search&last_filter=query&last_value=travel&query=travel) Here I got my [travel-suitcases.jpeg](static/images-readme/travel-suitcases.jpg) image.
+- [Pexels](https://www.pexels.com/photo/people-sitting-on-boat-2108832/) I used the [pexels-riverboat.jpg](static/images-readme/pexels-riverboat.jpg) image from this sit provided by a photographer named Streetwindy.
+- [Pexels](https://www.pexels.com/search/suitcase/) provided me with the [pexels-suitcase.jpg](static/images-readme/pexels-suitcase.jpg) image to use within the Resources section.
+- [Flash Packer Connect](https://www.flashpackerconnect.com/blog/visiting-cano-cristales-a-journey-to-colombias-most-colorful-river) provided me with the [cano-cristales-post.jpeg](static/images-readme/cano-cristales-post.jpeg).
