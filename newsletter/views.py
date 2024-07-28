@@ -94,10 +94,11 @@ def subscribe_view(request):
         form = SubscriptionForm(request.POST)
         if form.is_valid():
             email = form.cleaned_data.get('email')
-            subscription,
-            created = NewsletterSubscription.objects.get_or_create(
-                email=email,
-                defaults={'user': user} if user else {}
+            subscription, created = (
+                NewsletterSubscription.objects.get_or_create(
+                    email=email,
+                    defaults={'user': user} if user else {}
+                )
             )
 
             if created:

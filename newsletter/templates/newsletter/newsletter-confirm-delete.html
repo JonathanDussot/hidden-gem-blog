@@ -4,7 +4,7 @@
     <h1 class="newsletter-phrase">Unsubscribe from Newsletter</h1>
   </div>
   <div class="m-5 email-list text-center">
-    <p class="orange"><strong>Are you sure you want to unsubscribe {{ object.email }}?</strong></p>
+    <p class="orange"><strong>Are you sure you want to unsubscribe <br>{{ object.email }}?</strong></p>
     <form method="post">
       {% csrf_token %}
       <button class="btn btn-primary btn-sm" type="submit">Yes, Unsubscribe</button>

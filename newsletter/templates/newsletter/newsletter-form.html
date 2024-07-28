@@ -5,6 +5,7 @@
       <h1 class="newsletter-phrase">{% if object.pk %}Edit Subscription{% else %}Subscribe to Newsletter{% endif %}</h1>
     </div>
     <div class="m-5 email-list text-center">
+      <p class="orange">Which email would you like us to send it to?</p>
       <form method="post">
       {% csrf_token %}
       {{ form.as_p }}
