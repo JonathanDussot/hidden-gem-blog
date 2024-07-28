@@ -43,7 +43,7 @@ body {
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-style: oblique;
-    font-size: 1.6rem;
+    font-size: 1.3rem;
 }
 
 .nav-item {
@@ -306,7 +306,7 @@ img.img-width {
 }
 
 .btn-primary {
-    background-color: #035ee6;
+    background-color: #007bff;
     border-color: #0d6efd;
     text-decoration: none;
     color: #fff;
@@ -334,7 +334,6 @@ input {
 
 li {
     display: list-item;
-    text-align: -webkit-match-parent;
     unicode-bidi: isolate;
     padding: 10px;
 }
@@ -360,12 +359,12 @@ li {
 }
   
 .email-list .btn-primary {
-    background-color: #007bff;
+    background-color: #0d6efd;
     border-color: #007bff;
 }
   
 .email-list .btn-danger {
-    background-color: #dc3545;
+    background-color: #d82335;
     border-color: #dc3545;
 }
   

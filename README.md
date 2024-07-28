@@ -132,10 +132,7 @@ Not all stories have been implemented. Some have been left for future implementa
 
 ### Database Schema
 
-![Database Schema](static/images-readme/readme-db-schema.png)########
-
-
-
+![Database Schema](static/images-readme/hidden-gems-erd-diagram.png)
 
 ### Colour Scheme:
 
@@ -412,6 +409,7 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 - [DrawSQL](https://drawsql.app/) - for ERD mockups
 - [FreeLogoDesign](https://app.freelogodesign.org/)
 - [Colormind.io](http://colormind.io/) to generate color palette used. 
+- [cdnjs](https://cdnjs.com/libraries/bootstrap) for bootstrap.
 - Django
 - Bootstrap
 
@@ -438,21 +436,35 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 ## Deployment
 The site was deployed to Heroku. The steps to deploy are as follows:
 - Install Django & Gunicorn:
-```pip3 install 'django<4' gunicorn```
-- Install Django database & psycopg:
-```pip3 install dj_database_url psycopg2```
-- Install Cloudinary:
-```pip3 install dj3-cloudinary-storage```
-- Creating the requirements.txt file with the following command:
-```pip3 freeze --local > requirements.txt```
+```pip3 install Django~=4.2.1```
 - a django project was created using:
-```django-admin startproject printstatements .```
+```django-admin startproject gems .```
 - the blog app was then created with:
 ```python3 manage.py startapp blog```
+- Install gunicorn to enable deployment to Heroku:
+```pip3 install gunicorn~=20.1```
+- Creating the requirements.txt file with the following command:
+```pip3 freeze --local > requirements.txt```
+- Install Django summernote:
+```pip3 install django-summernote~=0.8.20.0```
+- Install whitenoise for Heroku to serve its own static files:
+```pip3 install whitenoise~=5.3.0```
+- Add user authentication with the following:
+```pip3 install django-allauth~=0.57.0```
+- Install Cloudinary:
+```pip3 install django-crispy-forms~=2.0 crispy-bootstrap5~=0.7```
+- Install Cloudinary:
+```pip3 install cloudinary~=1.36.0 dj3-cloudinary-storage~=0.0.6 urllib3~=1.26.15```
+- Install Cloudinary:
+```pip3 install dj3-cloudinary-storage```
+- Install Cloudinary:
+```pip3 install dj3-cloudinary-storage```
 - which was then added to the settings.py file within our project directory.
 - the changes were then migrated using:
-```python3 manage.py migrate```
-- navigated to [Heroku](www.heroku.com) & created a new app called print-statements.
+```python3 manage.py makemigrations``` and ```python3 manage.py migrate```
+- Collectstatic command for all static files to be deployed without issue:
+```python3 manage.py collectstatic```
+- navigated to [Heroku](www.heroku.com) & created a new app called hidden-gem-blog.
 - added the Heroku Postgres database to the Resources tab.
 - navigated to the Settings Tab, to add the following key/value pairs to the configvars:
 1. key: SECRET_KEY | value: randomkey
@@ -467,9 +479,7 @@ The site was deployed to Heroku. The steps to deploy are as follows:
 - pushed the project to Github
 - connected my github account to Heroku through the Deploy tab
 - connected my github project repository, and then clicked on the "Deploy" button
-
-* Due to Heroku revoking their frie tier access, the project has been redeployed using (Render)[https://render.com/] & (ElephantSQL)[https://www.elephantsql.com/] using the following [instructions](https://code-institute-students.github.io/deployment-docs/30-pp4/)
-- The live link for "print(STATEMENTS)" can be found [HERE](https://project4-print-statements.onrender.com/)
+- The live link for "Hidden Gems" can be found [HERE](https://hidden-gem-blog-d08378ae9ea1.herokuapp.com/)
 
 ## Credits
 
