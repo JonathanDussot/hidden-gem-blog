@@ -132,21 +132,28 @@ Not all stories have been implemented. Some have been left for future implementa
 
 ### Database Schema
 
-![Database Schema](static/images-readme/readme-db-schema.png)
+![Database Schema](static/images-readme/readme-db-schema.png)########
+
+
+
 
 ### Colour Scheme:
 
-![Colour Palette](static/images-readme/readme-colour-palette.png)
+![Colour Palette](static/images-readme/colour-scheme.png)
+
+- #fff - is typically used as my background colour and also text colour in the case of there being a dark-coloured background.
+- #212529 - is the text colour used throughout the webpage when there is a light-coloured background.
+- #188181 - to resemble some familiarity with the blue colour within the logo, a different shade was actually used to help with the colour contrast issues.
+- #F06814 - to resemble the orange colour within the logo and give a more familiar feeling throughout the webpage.
+- #445261 - is used in the mastheads within the post details html pages to contrast the image colours.
 
 ### Typography:
 All fonts were obtained from the Google Fonts library. I chose the following fonts for the page:
-1. Kanit: Site heading/logo, Blog & print titles
-2. Permanent Marker: site navigation & site buttons
-3. Shadows Into Light Two: all remaining site text
+1. Poppins: used for titles and Navbar elements such as the nav-items and text-muted phrase.
+2. Open Sans: Typically used for the body text of the webpage.
 
 ### Imagery:
-- All photography for the fictional "artists" was supplied by me.
-- Two drawings have also been uploaded, with the consent of the artist. They have been named in the Credits section.
+- All images have been named in the credit section, most of which are photos of places, whereas the others related to travel are from free photo sites.
 
 ## Features
 
@@ -338,89 +345,49 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 | Logout                        | User clicks logout     | UI updates, user is logged out, user cannot create a post | ✅         |
 
 ### BUG TESTING:
-1. index.html page not loading:
- - Through trial and error, I changed the view code from a class to a function.
- - as well as removed the ```.as_view()``` from the URL path.
+1. Heroku logs--tail error when deploying to Heroku:
+ - Added correctly-written web: gunicorn gems.wsgi to ProcFile to link it correctly.
 
-2. CSS styles not loading on blog page:
- - This [Django tutorial](https://docs.djangoproject.com/en/4.0/intro/tutorial06/) indicated that the styles were incorrectly linked.
- - This was resolved updating the href link in the base.html to ```{% static 'css/style.css' %}```
+2. 'unexpected chunk number 1 (expected 0)' error:
+ - This was caused be corrupted Data upon using loaddata with json.file according to Tutor Support.
+ - Uncommented sqlite database and commented out external database to temporarily work on project before eventually providing a solution (mentioned in bug #3)
 
-3. Error message after installing Allauth:
- - Tutor support informed me that Heroku had updated my database url value.
- - This was resolved by updating the env.py file with the new URL.
+3. Opening new external Database:
+ - Did pip install and pip freeze with all requirements, created env.py file, added new DB URL and secret key, collectstatic, updated CSRF, did makemigrations and migrate command and yet page would not load correctly.
+ - The cloudinary URL was missing within the env.py, this allowed the page to load correctly.
 
-4. Invalid "syntax" error after installing **crispy-forms**:
- - A comma was missing from within the BlogPostPage class.
+4. CSS styles would not load:
+ - Upon using terminal command to copy staticfiles into a template folder, accidently created and nested everything within an additional templates folder so url path did not connect.
+ - Moved everything out to the correct template folder and css styles were loading correctly.
 
-5. Django error message after adding comment form:
- - CSRF token had been added as CRSF.
- - Correcting the error resolved the issue.
+5. Admin interface content lacked RichText Editor for content fields in resources app:
+ - summernote_fields was not correctly linked to content containers within the admin.py file.
 
-6. Console error after adding "Categories" field to Artprints model:
- - The console indicated that a default field had not been supplied.
- - As I did not remember that it would need to be an integer, I added ```default='undecided'``` to the field.
- - This produced further error messages.
- - I corrected the model, and attempted to migrate the changes once more. The same error continued to display on the console.
- - I looked up how to revert the migrations on [Stackoverflow](https://stackoverflow.com/questions/32123477/how-to-revert-the-last-migration) using the following command: ```./manage.py migrate artprints zero```, but this did not resolve the issue.
- - After consulting with a fellow student who had experienced something similar, [Mats Simonsson](https://github.com/Pelikantapeten), I then deleted the files out of the migrations folder within my app folder.
- - This resolved this issue.
- - However upon contemplation, I have understood that had the database been significantly populated with data, this would not be a reasonable approach to take, as it would eliminate important information.
+6. Likes generated an error:
+ - within the blog's models.py the model's related name for the like button clashed with the comment section, I changed the name so code could correctly distinguish model and this fixed the bug.
 
-7. URL paths for second app:
- - Being unable to submit an empty string as the first parameter in the main URLs folder, my weblink was displaying as **prints/prints/**.
- - Having tried multiple suggestions from numerous sources, I instead resorted to changing the main URL path to **art** so that any new URL path created in the second app file, would then display as **art/pathname**
- - This is not the resolution that I was looking for, however for aesthetics, I have accepted it as the solution for now.
+7. Validator error message <o:p>:
+ - This was due to my population of the content fields having used my microsoft word to draft the tet before adding them to the admin interface, could not be seen in my code.
+ - Manually accessed and edited code from Admin interface and deleted the tags.
 
-8. Hero & About image not loading on deployed site:
- - These two images were stored directly within the django app as opposed to being uploaded to Cloudinary.
- - I tried numerous articles that suggested to change the URL path linked in the CSS file, and tried the following:
-  - ```background: url(/static/images/gallery-wall.jpg) no-repeat;``` : As shown in [Simpleit](https://simpleit.rocks/python/django/call-static-templatetag-for-background-image-in-css/)
-  - ```background: url('{% static "/images/gallery-wall.jpg" %}') no-repeat;``` : As showing in [Stackoverflow](https://stackoverflow.com/questions/5898776/how-to-refer-to-static-files-in-my-css-files)
-  - ```background: url('{% static "images/gallery-wall.jpg" %}') no-repeat;```
-  - ```background: url("{{ STATIC_URL }}images/gallery-wall.jpg") no-repeat;```
-  - ```background: url(static("images/gallery-wall.jpg"));```
- - As none of these resolved the issue, and I was unable to ascertain the solution that I required, I instead resorted to loading the images directly into the HTML files as opposed to the CSS. 
- - Issue resolved.
+8. Page would break when screen size was below 768px and only provide images:
+ - Deleted 'flex: no-wrap' to fix this issue and correctly display text with the images so users can access post details for each post.
 
-9. Art submission form unable to complete:
- - Terminal error suggested no file was selected.
- - I read numerous articles on stackoverflow, cloudinary, comments on slack, and was unable to resolve this.
- - Ger from Tutor support indicated that the required field was missing from my form tags ```enctype="multipart/form-data```
- - Adding this resolved the issue.
+9. Editing a comment while awaiting approval:
+ - Page would crash is user were to click on the edit button before comment had been approved.
+ - Fixed the issue by removing the edit button for comments awaiting approval.
 
-10. User unable to submit multiple prints:
- - This was due to the slug field not being included in the form submission.
- - Another side effect of this, is that when the print was then approved via the admin panel, should the admin not pay attention and approve it without inserting a slug, the entire prints page would then fail to load.
- - To resolve this, the slug field was added to the form field.
- - Have not yet figured out how to have this auto-populate as it would were it submitted directly from the admin panel.
- - However, adding the slug field ensures that the "Create" feature of CRUD now works as intended.
+10. Navbar overflow:
+ - Navbar displayed overflow off page between 1150px and 990px on all pages.
+ - Reduced the logo size, nav-link size and text-muted size so elements would not cause navbar to overflow before collapsing as media response styles take effect.
 
-11. Blog post page pushes social links to left:
- - Upon inspection in dev tools, the row containing the comments was being duplicated, causing the layout to shift.
- - Issue resolved by moving the ```{% endif %}``` inside of the closing div for the row.
- - This then caused an issue with the view when the user was logged out.
- - Once more, the opening & closing if statements needed to be moved outside the row entirely.
-
-12. Submit multiple comments:
-- Due to how the comments section was set up in the html file, upon submission of a comment, regardless of approval, the form would no longer be available to the user. Instead, a display message was constantly shown, suggesting that the comment was still pending approval, even if it had been approved.
-- To resolve this, the section in the HTML was removed, and instead a line was added to the view function so that a success message would display on the screen after submission. This then allows the user to go and submit multiple comments on the same post, regardless of whether they have an approved or pending comment already submitted.
-
-13. Testing CRUD functionality:
- - Each of the features were tested multiple times to ensure that numerous new posts could be submitted, and that each post had the ability to be updated and edited by the user that submitted it.
- - If a post is submitted by another user, the edit/delete buttons do not appear on the page.
-
-14. Forms test failed to run:
- - When running the newly created test in forms.py, the following error occurred in the terminal: "Got an error creating the test database: permission denied to create database".
- - A [Slack comment](https://code-institute-room.slack.com/archives/C026PTF46F5/p1647428298841409?thread_ts=1647427231.501879&cid=C026PTF46F5) provided the answer for this, & suggested that the new DATABASES variable in the settings.py file needed to be commented out, and the original one to be made active again for the tests to work.
- - Following these steps allowed the test to perform as expected.
-
-15. AssertionError: 301 != 200:
- - The second test implemented from the "Hello Django" project failed each time it was ran.
- - The answer on how to resolve it was ascertained from [Stackoverflow](https://stackoverflow.com/questions/21215035/django-test-always-returning-301), and adding an ```follow=True``` to the code in turn caused the tests to pass.
+11. Like button with a reverse path error:
+ - Upon correcting some of the hyphens and underscores, the blog's urls.py path had the correct pattern, but the views.py file still had **'post-detail'** instead of **post_detail** within the reverse function call.
 
 ### Unfixed Bugs
-- None that I'm aware of
+1. Sign up form - HTML Validator errors:
+- Upon validating, I noticed [4 errors with tags](static/images-readme/signup-html-errors.png) which were nowhere to be found within my code.
+- With help from Tutor Support, we determined this was from Django's Allauth's error and that I could do nothing to fix it from my end.
 
 ## Technologies Used
 ### Main Languages Used
@@ -432,25 +399,41 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 - SQL - Postgres
 
 ### Frameworks, Libraries & Programs Used
-- Google Fonts - for the font families: 
-- Font Awesome - to add icons to the social links in the footer element.
-- GitPod - to create my html files & styling sheet before pushing the project to Github.
-- GitHub - to store my repository for submission.
-- Balsamiq - were used to create mockups of the project prior to starting.
-- Am I Responsive? - to ensure the project looked good across all devices.
-- Favicon - to provide the code & image for the icon in the tab bar.
-- Adobe Photoshop - for photo editing
+- [Google Fonts](https://fonts.google.com/) - for the font families: 
+- [Font Awesome](fontawesome.com) - for the social network icons.
+- [GitPod](https://www.gitpod.io/) - for creating html files, css stylesheet and python files.
+- [GitHub](https://github.com/) - to store my repository for submission.
+- Google Dev tools - to test and fix issues detected.
+- [Pexels](https://www.pexels.com/) to use free images for site.
+- [Free Pik](https://www.freepik.es/) to use free images for site.
+- [Balsamiq](https://balsamiq.com/) - for the wireframe mockups of my webpage.
+- [Am I Responsive?](https://ui.dev/amiresponsive) - to ensure the webpage displayed well on all devices.
+- [Tiny PNG](https://tinypng.com/) to compress images.
+- [DrawSQL](https://drawsql.app/) - for ERD mockups
+- [FreeLogoDesign](https://app.freelogodesign.org/)
+- [Colormind.io](http://colormind.io/) to generate color palette used. 
 - Django
 - Bootstrap
-- DrawSQL
 
 ### Installed Packages:
-- 'django<4' gunicorn
-- dj_database_url psycopg2
-- dj3-cloudinary-storage
-- django-summernote [(link)](https://summernote.org/)
-- django-allauth [(link)](https://django-allauth.readthedocs.io/en/latest/)
-- django-crispy-forms[(link)](https://django-crispy-forms.readthedocs.io/en/latest/index.html)
+- asgiref==3.8.1
+- cloudinary==1.36.0
+- crispy-bootstrap5==0.7
+- dj-database-url==0.5.0
+- dj3-cloudinary-storage==0.0.6
+- Django==5.0.7
+- django-allauth==0.57.2
+- django-crispy-forms==2.2
+- django-summernote==0.8.20.0
+- gunicorn==20.1.0
+- oauthlib==3.2.2
+- psycopg2==2.9.9
+- PyJWT==2.8.0
+- python3-openid==3.2.0
+- requests-oauthlib==2.0.0
+- sqlparse==0.5.0
+- urllib3==1.26.19
+- whitenoise==5.3.0
 
 ## Deployment
 The site was deployed to Heroku. The steps to deploy are as follows:
