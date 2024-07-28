@@ -154,142 +154,167 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 
 #### Home Page:
 
-![Home page](static/images-readme/readme-homepage.png)
+![Home page](static/images-readme/features-homepage.png)
 
 #### Navigation Bar:
 
 ##### Desktop:
 
-![Navbar desktop](static/images-readme/readme-nav-desktop.png)
+![Navbar desktop](static/images-readme/features-desktop-navbar.png)
 
 ##### Mobile:
 
-![Navbar mobile](static/images-readme/readme-nav-mobile.png)
+![Navbar mobile](static/images-readme/features-mobile-navbar.png)
+
+#### Paginated features:
+- Leads user to next/ previous page(s) assuming there's more posts than the page's limit.
+![paginated](static/images-readme/features-paginated.png)
 
 #### About Page:
 
-![About page](static/images-readme/readme-aboutpage.png)
+![About page](static/images-readme/features-aboutpage.png)
 
-#### Prints Page:
+#### Collaboration Form on About Page:
 
-![Prints Page](static/images-readme/readme-printspage.png)
+![Collaboration form](static/images-readme/features-collaboration-request.png)
 
-#### Print Details Page:
+#### Travel Resources Page:
 
-![Print Details Page](static/images-readme/readme-print-details.png)
+![Resources Page](static/images-readme/features-resourcespage.png)
 
-#### Blog Page:
+#### Post Details Page:
 
-![Blog Page](static/images-readme/readme-blog.png)
+![Post Details Page](static/images-readme/features-postdetails.png)
 
-#### Blog Post Details:
+#### Like button feature:
 
-![Blog Post Details](static/images-readme/readme-blog-post.png)
+![Like button feature](static/images-readme/features-like-system.png)
+
+#### Post Details Comment Section:
+
+![Post Details Comment Section](static/images-readme/features-comment-system.png)
 
 #### Log in, Log out & Sign up:
 
 ##### Login:
 
-![Login](static/images-readme/readme-signin.png)
+![Login](static/images-readme/features-signin-page.png)
 
 ##### Logout:
 
-![Logout](static/images-readme/readme-signout.png)
+![Logout](static/images-readme/features-signout-page.png)
 
 ##### Sign-up:
 
-![Sign-up](static/images-readme/readme-signup.png)
+![Sign-up](static/images-readme/features-signup-page.png)
 
-#### Social Links:
+#### Footer:
 
-![Social Links](static/images-readme/readme-sociallinks.png)
+![Footer](static/images-readme/features-footer.png)
 
-### Who gives a C.R.U.D:
+### C.R.U.D:
 
-#### Create (button):
-- The button to invite you to submit a new artwork will be found on the **"Prints"** page.
+#### Newsletter Subscription Page - Create:
+- This gives users the option to sign up for the newsletter by entering their email before being alerted on the success of their subsription.
 - It is only visible to users who are signed in.
-![CRUD - create button](static/images-readme/readme-c-in-crud.png)
+![CRUD - create button](static/images-readme/features-subscription-page.png)
 
-#### Create (form):
-- This page may only be accessed from the button on the **"Prints"** page.
-![CRUD - create form](static/images-readme/readme-c-form.png)
+#### Newsletter Subscription Page - Read:
+- User is alerted as to the successful subsription...
+![CRUD - read](static/images-readme/features-subscription-alert.png)
+- ...before being led to the email-list page with a display of the email(s) they have subscribed on their account alone.
+![CRUD - read(2)](static/images-readme/features-editsubscription-page.png)
 
-#### Read:
-![CRUD - read](static/images-readme/readme-printspage.png)
+#### Newsletter Subscription Page - Update:
+- The user is given the option to edit the email address on their account alone.
+![CRUD - update](static/images-readme/features-updatesubscription-page.png)
 
-#### Update & Delete:
-- The update & delete feature is only available to the user who who directly submitted the artwork.
-![CRUD - update & delete](static/images-readme/readme-u-d-in-crud.png)
+#### Newsletter Subscription Page - Delete:
+- The user is given the option to delete an email(s) and unscubscribe on their account alone.
+![CRUD - delete](static/images-readme/features-deletesubscription-page.png)
 
 ### Features Left to Implement
-- Online shop
-- Artist profiles
-- Contact page
-- Password reset
-- Social media sign-in
+- System to send out newsletters.
+- newsletter contests.
+- flight reservation section.
+- GPS map showing location.
+- Hotels/ Other accomodation around the location using GPS.
+- Password reset.
+- Social media sign-in.
 
 ## Testing
 
 ### Validator Testing
 | **TEST** | **ACTION** | **EXPECTATION** | **RESULT** |
 | ----------------------------- | ----------------------- | --------------------------- | ---------- |
-| printstatements - settings.py | PEP8 validator | [No issues found](static/images-readme/readme-pep8.png) | ✅ |
-| printstatements - urls.py | PEP8 validator | No issues found | ✅ |
+| gems - settings.py | PEP8 validator | [No issues found](static/images-readme/pep8-validator-python.png) | ✅ |
+| gems - urls.py | PEP8 validator | No issues found | ✅ |
 | blog app - forms.py | PEP8 validator | No issues found | ✅ |
 | blog app - models.py | PEP8 validator | No issues found | ✅ |
 | blog app - views.py | PEP8 validator | No issues found | ✅ |
 | blog app - urls.py | PEP8 validator | No issues found | ✅ |
 | blog app - admin.py | PEP8 validator | No issues found | ✅ |
-| artprint app - forms.py | PEP8 validator | No issues found | ✅ |
-| artprint app - models.py | PEP8 validator | No issues found | ✅ |
-| artprint app - views.py | PEP8 validator | No issues found | ✅ |
-| artprint app - urls.py | PEP8 validator | No issues found | ✅ |
-| artprint app - admin.py | PEP8 validator | No issues found | ✅ |
-| style.css | [W3C - Jigsaw](https://jigsaw.w3.org/css-validator/) validator | [No issues found](static/images-readme/readme-w3c-css.png) | ✅ |
-| Home page - html | [W3C](https://validator.w3.org/) validator - source code | No issues found | ✅ |
+| about app - forms.py | PEP8 validator | No issues found | ✅ |
+| about app - models.py | PEP8 validator | No issues found | ✅ |
+| about app - views.py | PEP8 validator | No issues found | ✅ |
+| about app - urls.py | PEP8 validator | No issues found | ✅ |
+| about app - admin.py | PEP8 validator | No issues found | ✅ |
+| newsletter app - forms.py | PEP8 validator | No issues found | ✅ |
+| newsletter app - models.py | PEP8 validator | No issues found | ✅ |
+| newsletter app - views.py | PEP8 validator | No issues found | ✅ |
+| newsletter app - urls.py | PEP8 validator | No issues found | ✅ |
+| newsletter app - admin.py | PEP8 validator | No issues found | ✅ |
+| resources app - forms.py | PEP8 validator | No issues found | ✅ |
+| resources app - models.py | PEP8 validator | No issues found | ✅ |
+| resources app - views.py | PEP8 validator | No issues found | ✅ |
+| resources app - urls.py | PEP8 validator | No issues found | ✅ |
+| resources app - admin.py | PEP8 validator | No issues found | ✅ |
+| style.css | [W3C - Jigsaw](https://jigsaw.w3.org/css-validator/) validator | [No issues found](static/images-readme/w3c-validator-css.png) | ✅ |
+| Home page - html | [W3C](https://validator.w3.org/) validator - source code | [No issues found](static/images-readme/w3c-validator-html.png) | ✅ |
 | About page - html | W3C validator - source code | No issues found | ✅ |
-| Blog page - html | W3C validator - source code | No issues found | ✅ |
-| Prints page - html | W3C validator - source code | No issues found | ✅ |
+| Post Details page - html | W3C validator - source code | No issues found | ✅ |
+| Resources page - html | W3C validator - source code | No issues found | ✅ |
+| Newsletter page - html | W3C validator - source code | No issues found | ✅ |
 | Sign-in page - html | W3C validator - source code | No issues found | ✅ |
-| Home page - html | lighthouse | [Acceptable scores](static/images-readme/readme-lighthouse.png) | ✅ |
+| Home page - html | lighthouse | [Acceptable scores](static/images-readme/lighthouse.png) | ✅ |
 | About page - html | lighthouse | Acceptable scores | ✅ |
-| Blog page - html | lighthouse | Acceptable scores | ✅ |
-| Prints page - html | lighthouse | Acceptable scores | ✅ |
+| Post-Details page - html | lighthouse | Acceptable scores | ✅ |
+| Resources page - html | lighthouse | Acceptable scores | ✅ |
+| Newsletter page - html | lighthouse | Acceptable scores | ✅ |
 | Sign-in page - html | lighthouse | Acceptable scores | ✅ |
-| Brave browser | Launch site | Site opens without issue | ✅ |
-| Chrome browser | Launch site | Site opens without issue | ✅ |
-| Safari browser | Launch site | Site opens without issue | ✅ |
+| WAVE results | WAVE | [Acceptable scores](static/images-readme/wave.png) | ✅ |
+| Microsoft Edge browser | Launch site | Site opens without issue | ✅ |
+| Google Chrome browser | Launch site | Site opens without issue | ✅ |
 
 ### Responsiveness testing
 
 | **TEST**                      | **ACTION**              | **EXPECTATION**             | **RESULT** |
 | ----------------------------- | ----------------------- | --------------------------- | ---------- |
 | Home page - responsiveness    | Size site down to 320px | all elements stay on screen | ✅         |
-| Home page - responsiveness    | Size site up to 1920ox  | all elements stay on screen | ✅         |
+| Home page - responsiveness    | Size site up to 1920px  | all elements stay on screen | ✅         |
 | About page - responsiveness   | Size site down to 320px | all elements stay on screen | ✅         |
-| About page - responsiveness   | Size site up to 1920ox  | all elements stay on screen | ✅         |
-| Prints page - responsiveness  | Size site down to 320px | all elements stay on screen | ✅         |
-| Prints page - responsiveness  | Size site up to 1920ox  | all elements stay on screen | ✅         |
-| Blog page - responsiveness    | Size site down to 320px | all elements stay on screen | ✅         |
-| Blog page - responsiveness    | Size site up to 1920ox  | all elements stay on screen | ✅         |
+| About page - responsiveness   | Size site up to 1920px  | all elements stay on screen | ✅         |
+| Post-Details page - responsiveness  | Size site down to 320px | all elements stay on screen | ✅         |
+| Post-Details page - responsiveness  | Size site up to 1920px  | all elements stay on screen | ✅         |
+| Resources page - responsiveness    | Size site down to 320px | all elements stay on screen | ✅         |
+| Resources page - responsiveness    | Size site up to 1920px  | all elements stay on screen | ✅         |
+| Newsletter page - responsiveness   | Size site up to 1920px  | all elements stay on screen | ✅         |
+| Newsletter page - responsiveness   | Size site up to 1920px  | all elements stay on screen | ✅         |
 | Sign-in page - responsiveness | Size site down to 320px | all elements stay on screen | ✅         |
-| Sign-in page - responsiveness | Size site up to 1920ox  | all elements stay on screen | ✅         |
+| Sign-in page - responsiveness | Size site up to 1920px  | all elements stay on screen | ✅         |
 
 ### C.R.U.D. testing
 
 | **TEST**          | **ACTION**             | **EXPECTATION**          | **RESULT** |
 | ----------------- | ---------------------- | ------------------------ | ---------- |
-| Blog - Create     | Add new instance to DB | Instance created         | ✅         |
-| Blog - Read       | Retrieve all instances | Instances visible in UI  | ✅         |
-| Blog - Update     | Modify an instance     | Mods saved & visible     | ✅         |
-| Blog - Delete     | Delete an instance     | Instance removed from UI | ✅         |
+| Newsletter subscription - Create     | Add new instance to DB | Instance created         | ✅         |
+| Newsletter subscription - Read       | Retrieve all instances | Instances visible in UI  | ✅         |
+| Newsletter subscription - Update     | Modify an instance     | Mods saved & visible     | ✅         |
+| Newsletter subscription - Delete     | Delete an instance     | Instance removed from UI | ✅         |
 | Comments - Create | Add new instance to DB | Instance created         | ✅         |
 | Comments - Read   | Retrieve all instances | Instances visible in UI  | ✅         |
-| Artprint - Create | Add new instance to DB | Instance created         | ✅         |
-| Artprint - Read   | Retrieve all instances | Instances visible in UI  | ✅         |
-| Artprint - Update | Modify an instance     | Mods saved & visible     | ✅         |
-| Artprint - Delete | Delete an instance     | Instance removed from UI | ✅         |
+| Comments - Update | Add new instance to DB | Mods saved & visible     | ✅         |
+| Comments - Delete   | Retrieve all instances | Instance removed from UI | ✅         |
 | Like - Create | Add new instance to DB | Instance created         | ✅         |
 | Like - Delete | Delete an instance     | Instance removed from UI | ✅         |
 
@@ -300,9 +325,14 @@ All fonts were obtained from the Google Fonts library. I chose the following fon
 | Navigation bar                | Click on nav link      | user routed to correct page                               | ✅         |
 | Footer links                  | Click on footer links  | user routed to new browser tab                            | ✅         |
 | Like button                   | Click "like"           | Post liked/unliked accordingly                            | ✅         |
-| Edit button                   | Click edit button      | user navigated to edit screen                             | ✅         |
-| Delete button                 | Click delete button    | print/blog removed from UI                                | ✅         |
-| Internal links                | Click link             | User routed to appropriate page                           | ✅         |
+| Comment section                   | Written empty message           | does not submit, prompts to write a message                            | ✅         |
+| Comment section                   | Write message and submit           | user informed on pending approval                            | ✅         |
+| Edit button                   | Click edit button      | user allowed to edit comment only if previously approved                             | ✅         |
+| Delete button                 | Click delete button    | user allowed to delete comment only if previously approved                                | ✅         |
+| Collaboration form                | Submit form    | user alerted on successful form                                | ✅         |
+| External links in Resources                | Click link             | User routed to appropriate webpage                           | ✅         |
+| Subscription                | enter invalid email             | User prompted to write a valid email                           | ✅         |
+| Subscription CRUD buttons                | Click buttons            | User routed to appropriate page and UI updated                    | ✅         |
 | Login                         | User logs in           | UI updates & user is logged in                            | ✅         |
 | Sign up                       | User signs up          | new account created for the user                          | ✅         |
 | Logout                        | User clicks logout     | UI updates, user is logged out, user cannot create a post | ✅         |
